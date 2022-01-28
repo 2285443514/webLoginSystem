@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: #c4c4fc;
+    background-image: radial-gradient(closest-side, rgb(0, 126, 255), rgba(0, 126, 255, 0)),
+    radial-gradient(closest-side, rgb(255, 29, 127), rgba(255, 29, 127, 0)),
+    radial-gradient(closest-side, rgb(244, 255, 142), rgba(244, 255, 142, 0)),
+    radial-gradient(closest-side, rgba(255, 161, 0, 1), rgba(255, 161, 0, 0)),
+    radial-gradient(closest-side, rgba(52, 255, 56, 1), rgba(52, 255, 56, 0));
+    background-size: 130vmax 130vmax,
+    80vmax 80vmax,
+    90vmax 90vmax,
+    110vmax 110vmax,
+    90vmax 90vmax;
+    background-position: -80vmax -80vmax,
+    60vmax -60vmax,
+    10vmax 10vmax,
+    -30vmax -10vmax,
+    60vmax 60vmax;
+    background-repeat: no-repeat;
+    animation: 10s movement linear infinite;
+    overflow: hidden;
+    z-index: -2;
+}
+
+body::after {
+    content: '';
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(5px);
+    z-index: -1;
+}
+
+
+@keyframes movement {
+    0%, 100% {
+        background-size: 130vmax 130vmax,
+        80vmax 80vmax,
+        90vmax 90vmax,
+        110vmax 110vmax,
+        90vmax 90vmax;
+        background-position: -70vmax -70vmax,
+        60vmax -60vmax,
+        10vmax 10vmax,
+        -30vmax -10vmax,
+        60vmax 60vmax;
+    }
+
+    25% {
+        background-size: 100vmax 100vmax,
+        90vmax 90vmax,
+        100vmax 100vmax,
+        90vmax 90vmax,
+        70vmax 70vmax;
+        background-position: -60vmax -30vmax,
+        50vmax -50vmax,
+        0vmax -20vmax,
+        -40vmax -20vmax,
+        40vmax 50vmax;
+    }
+
+    50% {
+        background-size: 80vmax 80vmax,
+        80vmax 80vmax,
+        80vmax 80vmax,
+        60vmax 60vmax,
+        90vmax 90vmax;
+        background-position: -50vmax -40vmax,
+        40vmax -40vmax,
+        10vmax 0vmax,
+        20vmax 10vmax,
+        30vmax 60vmax;
+    }
+
+    75% {
+        background-size: 90vmax 90vmax,
+        90vmax 90vmax,
+        100vmax 100vmax,
+        90vmax 90vmax,
+        80vmax 80vmax;
+        background-position: -60vmax -60vmax,
+        40vmax -50vmax,
+        20vmax 0vmax,
+        -10vmax 10vmax,
+        40vmax 50vmax;
+    }
+}

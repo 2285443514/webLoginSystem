@@ -1,0 +1,300 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    user-select: none;
+}
+
+.operate {
+    width: 350px;
+    height: 850px;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, .7);
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, .5);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.operate .info {
+    width: 250px;
+    height: 200px;
+    font-size: 30px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.operate .options {
+    width: 350px;
+    height: 650px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.operate .option {
+    width: 250px;
+    height: 100px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    cursor: pointer;
+    color: black;
+    transition: .3s;
+}
+
+.operate .option:hover {
+    background-color: rgb(210, 210, 210);
+    transition: .3s;
+}
+
+.operate .option:active {
+    background-color: rgb(170, 170, 170);
+    transition: .3s;
+}
+
+.operate a {
+    text-decoration: none;
+    color: black;
+}
+
+.change-password {
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    right: 25vw;
+    top: calc(50% - 300px);
+    background-color: rgba(255, 255, 255, .4);
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, .4);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+}
+
+@keyframes big {
+    0% {
+        transform: translateX(-40vw) translateY(-10vh) scale(0.1);
+        opacity: .5;
+    }
+    100% {
+        transform: none;
+        opacity: 1;
+    }
+}
+
+@keyframes small {
+    0% {
+        transform: none;
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-40vw) translateY(-10vh) scale(0.1);
+        opacity: 0;
+    }
+}
+
+.toolbar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.toolbar .close {
+    width: 50px;
+    height: 50px;
+    font-size: 50px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 25px;
+    margin: 10px;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.toolbar .close:hover {
+    background-color: red;
+    transition: .2s;
+}
+
+.change-password form, .user form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.change-password input, .user input {
+    width: 400px;
+    height: 50px;
+    margin-top: 50px;
+    padding-left: 20px;
+    outline: 0;
+    font-size: 30px;
+    border: 2px solid gray;
+    border-radius: 25px;
+}
+
+.change-password span, .user span {
+    margin-top: 20px;
+    font-size: 30px;
+    height: 50px;
+}
+
+.change-password input[type="button"], .user input[type="button"] {
+    width: 200px;
+    height: 80px;
+    margin-top: 10px;
+    border-radius: 40px;
+    padding: 0;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.change-password input[type="button"]:hover, .user input[type="button"]:hover {
+    background-color: rgb(216, 216, 216);
+}
+
+.change-password input[type="button"]:active, .user input[type="button"]:active {
+    background-color: rgb(190, 190, 190);
+}
+
+.admin-user {
+    width: 1000px;
+    height: 800px;
+    position: absolute;
+    right: 13vw;
+    top: calc(50% - 400px);
+    background-color: rgba(255, 255, 255, .4);
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, .4);
+    backdrop-filter: blur(10px);
+    will-change: transform;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+}
+
+@keyframes big2 {
+    0% {
+        transform: translateX(-40vw) translateY(10vh) scale(0.1);
+        opacity: .5;
+    }
+    100% {
+        transform: none;
+        opacity: 1;
+    }
+}
+
+@keyframes small2 {
+    0% {
+        transform: none;
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-40vw) translateY(10vh) scale(0.1);
+        opacity: 0;
+    }
+}
+
+.admin-user .table {
+    width: 900px;
+    height: 600px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.admin-user table {
+    width: 900px;
+    font-size: 25px;
+}
+
+.admin-user tr {
+    height: 50px;
+}
+
+.admin-user td {
+    text-align: center;
+}
+
+.admin-user button {
+    outline: 0;
+    border: none;
+    width: 100px;
+    height: 35px;
+    margin: 0 5px;
+    border-radius: 35px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.admin-user button:hover {
+    background-color: rgb(216, 216, 216);
+}
+
+.admin-user button:active {
+    background-color: rgb(190, 190, 190);
+}
+
+.admin-user .add {
+    width: 200px;
+    height: 50px;
+    border-radius: 50px;
+    margin-top: 30px;
+}
+
+.user {
+    width: 400px;
+    height: 350px;
+    position: absolute;
+    left: 60%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, .4);
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, .4);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 30;
+    opacity: 0;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.user input {
+    width: 300px;
+    height: 50px;
+    font-size: 25px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.user input[type="button"] {
+    width: 200px;
+    height: 50px;
+    font-size: 25px;
+    margin-top: 0;
+}
+
+.user span {
+    margin-top: 0;
+    font-size: 25px;
+}

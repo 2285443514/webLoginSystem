@@ -1,0 +1,720 @@
+/* 右侧登录窗口 */
+.login *, .register *, .logo * {
+    font-family: sans-serif;
+    user-select: none;
+}
+
+input::placeholder {
+    color: #444444;
+}
+
+.login-wrapper, .register-wrapper {
+    width: 600px;
+    height: 700px;
+    overflow: hidden;
+    position: absolute;
+    right: 10vw;
+    display: flex;
+    justify-content: center;
+}
+
+.login-wrapper {
+    top: calc(50% - 350px);
+    align-items: flex-start;
+}
+
+.register-wrapper {
+    height: 0;
+    bottom: calc(50% - 350px);
+    align-items: flex-end;
+}
+
+@keyframes higher {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 700px;
+    }
+}
+
+@keyframes shorter {
+    0% {
+        height: 700px;
+    }
+    100% {
+        height: 0;
+    }
+}
+
+.change-line {
+    display: block;
+    width: 600px;
+    height: 20px;
+    background: linear-gradient(90deg, #60cdff, #fd64bb, #fff27b,
+    #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    filter: blur(5px);
+    border-radius: 5px;
+    position: absolute;
+    right: 10vw;
+    bottom: calc(50% - 360px);
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+    z-index: 20;
+}
+
+@keyframes up {
+    0% {
+        opacity: 1;
+        bottom: calc(50% - 360px);
+    }
+    99% {
+        opacity: 1;
+        bottom: calc(50% + 340px);
+    }
+    100% {
+        bottom: calc(50% + 340px);
+    }
+}
+
+@keyframes down {
+    0% {
+        opacity: 1;
+        bottom: calc(50% + 340px);
+    }
+    99% {
+        opacity: 1;
+        bottom: calc(50% - 360px);
+    }
+    100% {
+        bottom: calc(50% - 360px);
+    }
+}
+
+
+.login, .register {
+    width: 500px;
+    height: 600px;
+    position: relative;
+    background-color: rgba(255, 255, 255, .4);
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, .4);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    z-index: 10;
+}
+
+.login {
+    margin-top: 50px;
+}
+
+.register {
+    margin-bottom: 50px;
+}
+
+.login .wrapper a, .register .wrapper a {
+    width: 350px;
+    height: 80px;
+    position: absolute;
+    bottom: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 30px;
+    line-height: 80px;
+    color: rgba(255, 255, 255, .9);
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, .5);
+    text-decoration: none;
+    box-sizing: border-box;
+    background: linear-gradient(90deg, #60cdff, #fd64bb, #fff27b,
+    #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    border-radius: 60px;
+    background-size: 400%;
+    z-index: 1;
+    transition: .5s;
+}
+
+.register .wrapper a {
+    bottom: 100px;
+}
+
+.login .wrapper a:hover, .register .wrapper a:hover {
+    animation: moveBg 16s linear infinite alternate;
+}
+
+.login .wrapper a::before, .register .wrapper a::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    z-index: -1;
+    background: linear-gradient(90deg, #60cdff, #fd64bb, #fff27b,
+    #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    border-radius: 40px;
+    background-size: 400%;
+    filter: blur(20px);
+    opacity: 0;
+    transition: .5s;
+}
+
+.login .wrapper a:hover::before, .register .wrapper a:hover::before {
+    filter: blur(20px);
+    opacity: 1;
+    animation: moveBg 16s linear infinite;
+}
+
+
+@keyframes moveBg {
+    0% {
+        background-position: 0%;
+    }
+
+    50% {
+        background-position: 100%;
+    }
+
+    100% {
+        background-position: 0%;
+    }
+}
+
+.login .change-wrapper {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 450px;
+    height: 50px;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 0px;
+}
+
+.login .change-wrapper .change {
+    display: inline-block;
+    position: relative;
+    width: 200px;
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 25px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.login .change-wrapper .change-password, .login .change-wrapper .change-code {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 4px;
+    background-color: blue;
+    transition: .3s .2s;
+}
+
+.login .change-wrapper .change-code {
+    right: auto;
+    left: 0;
+    width: 0%;
+    transition: .3s;
+
+}
+
+.login .field-wrapper, .register .field-wrapper {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+}
+
+.register .field-wrapper {
+    top: 20px;
+}
+
+.login .field-scroll {
+    position: absolute;
+    left: 0px;
+    width: 800px;
+    height: 400px;
+    white-space: nowrap;
+    transition: .5s;
+}
+
+.login .wrapper form {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.login .field, .register .field {
+    display: inline-block;
+    width: 400px;
+    height: 400px;
+    white-space: normal;
+    text-align: center;
+}
+
+.login .field input, .register .field input {
+    background: none;
+    width: 300px;
+    height: 40px;
+    padding: 0px 20px 10px 20px;
+    margin-top: 50px;
+    font-size: 25px;
+    border: none;
+    outline: none;
+    border-bottom: 3px cyan solid;
+}
+
+.login #passwordForm input {
+    margin-top: 30px;
+}
+
+.register .field input {
+    margin-top: 40px;
+}
+
+.login .field .code, .register .field .code {
+    width: 150px;
+}
+
+.login .field .CAPTCHA {
+    width: 130px;
+}
+
+.login #passwordForm img {
+    width: 170px;
+    height: 50px;
+    vertical-align: bottom;
+    cursor: pointer;
+}
+
+.login .field .code-button, .register .field .code-button {
+    display: inline-block;
+    width: 140px;
+    height: 60px;
+    margin-left: 10px;
+    line-height: 60px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    background-color: #03a9f4;
+    border-radius: 60px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, .5);
+    transition: .3s;
+}
+
+.login .field .code-button:hover {
+    background-color: #0098df;
+    transition: .3s;
+}
+
+.login .field .code-button:active {
+    background-color: #017bb4;
+    transition: .3s;
+}
+
+.login .wrapper .code-submit {
+    display: none;
+}
+
+.gray-button {
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    border-radius: 50px;
+    bottom: 50px;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, .5);
+    cursor: pointer;
+}
+
+.login .wrapper .register-button {
+    width: 100px;
+    left: 110px;
+}
+
+.login .wrapper .forget-button {
+    width: 140px;
+    right: 110px;
+}
+
+.register .wrapper .return-button {
+    width: 140px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
+}
+
+.gray-button {
+    background: #aaaaaa;
+    transition: .3s;
+}
+
+.gray-button:hover {
+    background: #999999;
+    transition: .3s;
+}
+
+.gray-button:active {
+    background: #777777;
+    transition: .3s;
+}
+
+
+/* logo */
+.logo {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 400px;
+    height: 77px;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+.logo .img {
+    display: inline-block;
+    width: 200px;
+    height: 100px;
+    background: url(../images/logo.png) no-repeat;
+    background-size: contain;
+}
+
+.error {
+    width: 400px;
+    height: 50px;
+    font-size: 25px;
+    line-height: 50px;
+    text-align: center;
+    position: absolute;
+    bottom: 235px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.register .error {
+    bottom: 185px;
+}
+
+.banner-wrapper {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.banner {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    white-space: nowrap;
+    font-size: 0px;
+    left: 0px;
+    display: flex;
+    align-items: center;
+    z-index: 5;
+    transition: 1s;
+}
+
+.banner .img {
+    display: inline-block;
+    min-width: 20vw;
+    min-height: 20vw;
+    margin-right: 1vw;
+    box-shadow: 10px 15px 10px 10px rgba(0, 0, 0, .3);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.banner .big {
+    min-width: 30vw;
+    min-height: 30vw;
+    transition: 1s;
+}
+
+.star {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    background: url("../images/star.png") center no-repeat;
+    background-size: contain;
+    animation: slowLeftDown .5s 1 forwards ease-out;
+    z-index: 50;
+}
+
+@keyframes slowLeftDown {
+    0% {
+        transform: none;
+    }
+    100% {
+        transform: translateY(20px) translateX(-20px);
+    }
+}
+
+@keyframes slowDown {
+    0% {
+        transform: none;
+    }
+    100% {
+        transform: translateY(20px);
+    }
+}
+
+@keyframes slowRightDown {
+    0% {
+        transform: none;
+    }
+    100% {
+        transform: translateY(20px) translateX(20px);
+    }
+}
+
+.loading-wrapper, .wrong-wrapper, .correct-wrapper {
+    width: 600px;
+    height: 700px;
+    overflow: hidden;
+    position: absolute;
+    right: 10vw;
+    justify-content: center;
+    top: calc(50% - 350px);
+    align-items: flex-start;
+    display: none;
+}
+
+.loading-wrapper .loading, .wrong-wrapper .wrong, .correct-wrapper .correct {
+    width: 500px;
+    height: 600px;
+    position: relative;
+    background-color: rgba(255, 255, 255, .4);
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, .4);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    margin-top: 50px;
+    z-index: 30;
+}
+
+.loading span {
+    display: inline-block;
+    width: 500px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 50px;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, .4);
+    color: #05afd1;
+}
+
+.loading .dot {
+    display: inline;
+    font-size: 50px;
+    margin: 0 5px;
+    opacity: 0;
+    animation: load .9s infinite;
+}
+
+@keyframes load {
+    30% {
+        opacity: 1;
+    }
+}
+
+.loading .dot:nth-child(2) {
+    animation-delay: .3s;
+}
+
+.loading .dot:nth-child(3) {
+    animation-delay: .6s;
+}
+
+.loading .base {
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: rotateX(45deg) rotateZ(45deg) translate(-100%, -20%);
+    transform-style: preserve-3d;
+}
+
+.cube,
+.cube:after,
+.cube:before {
+    content: '';
+    position: absolute;
+    float: left;
+    height: 50px;
+    width: 50px;
+}
+
+.cube {
+    position: relative;
+    background-color: #05afd1;
+    transform: translateZ(50px);
+    transform-style: preserve-3d;
+    box-shadow: 200px 200px 30px rgba(0, 0, 0, 0.3);
+    animation: cube 1s infinite;
+}
+
+.cube:after {
+    background-color: #049dbc;
+    transform: rotateX(-90deg) translateY(50px);
+    transform-origin: 100% 100%;
+}
+
+.cube:before {
+    background-color: #048ca7;
+    transform: rotateY(90deg) translateX(50px);
+    transform-origin: 100% 0;
+}
+
+.cube:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.cube:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.cube:nth-child(3) {
+    animation-delay: 0.15s;
+}
+
+.cube:nth-child(4) {
+    animation-delay: 0.2s;
+}
+
+.cube:nth-child(5) {
+    animation-delay: 0.25s;
+}
+
+.cube:nth-child(6) {
+    animation-delay: 0.3s;
+}
+
+.cube:nth-child(7) {
+    animation-delay: 0.35s;
+}
+
+.cube:nth-child(8) {
+    animation-delay: 0.4s;
+}
+
+.cube:nth-child(9) {
+    animation-delay: 0.45s;
+}
+
+@keyframes cube {
+    50% {
+        transform: translateZ(10px);
+    }
+}
+
+.wrong .line1, .wrong .line2 {
+    position: absolute;
+    height: 50px;
+    visibility: visible;
+    border-radius: 20px;
+    background-color: red;
+    box-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black;
+}
+
+.wrong .line1-wrapper, .wrong .line2-wrapper {
+    width: 300px;
+    height: 50px;
+    border-radius: 20px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotateZ(45deg);
+}
+
+.wrong .line2-wrapper {
+    transform: translate(-50%, -50%) rotateZ(-45deg);
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.wrong .line1 {
+    width: 0;
+    animation: wrongLine .5s 1 forwards;
+}
+
+.wrong .line2 {
+    width: 0;
+    animation: wrongLine .5s 1 .5s forwards;
+}
+
+@keyframes wrongLine {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 300px;
+    }
+}
+
+.correct .line1, .correct .line2 {
+    position: absolute;
+    height: 50px;
+    border-radius: 20px;
+    background-color: green;
+    box-shadow: 1px 1px 1px black, 1px -1px 1px black, -1px 1px 1px black, -1px -1px 1px black;
+}
+
+.correct .line1-wrapper, .correct .line2-wrapper {
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-96%, -20%) rotateZ(45deg);
+}
+
+.correct .line2-wrapper {
+    width: 300px;
+    transform: translate(-30%, -70%) rotateZ(-45deg);
+}
+
+
+.correct .line1 {
+    width: 0;
+    animation: correctLine1 .5s 1 forwards;
+}
+
+.correct .line2 {
+    width: 0;
+    animation: correctLine2 .75s 1 .5s forwards;
+}
+
+@keyframes correctLine1 {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 200px;
+    }
+}
+
+@keyframes correctLine2 {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 300px;
+    }
+}
